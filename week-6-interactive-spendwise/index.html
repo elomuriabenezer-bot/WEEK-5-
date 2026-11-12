@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SpendWise interactive budget tracker">
+  <title>SpendWise | Interactive Budget Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#">SpendWise</a>
+    <span class="tagline">Make every shilling count.</span>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <p class="eyebrow">YOUR MONEY, MADE SIMPLE</p>
+      <h1>Monthly budget dashboard</h1>
+      <p>Set your budget, add expenses and keep track of your balance.</p>
+    </section>
+
+    <section class="panel budget-panel" aria-labelledby="budget-heading">
+      <h2 id="budget-heading">Set your monthly budget</h2>
+      <form id="budget-form">
+        <label for="budget-input">Budget amount (KSh)</label>
+        <div class="input-row">
+          <input id="budget-input" type="number" min="0" step="0.01" placeholder="e.g. 40000" required>
+          <button type="submit">Save budget</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="summary-grid" aria-label="Budget summary">
+      <article class="summary-card">
+        <p>Monthly budget</p>
+        <strong id="budget-total">KSh 0.00</strong>
+      </article>
+      <article class="summary-card">
+        <p>Total expenses</p>
+        <strong id="expense-total">KSh 0.00</strong>
+      </article>
+      <article class="summary-card">
+        <p>Remaining balance</p>
+        <strong id="balance-total">KSh 0.00</strong>
+      </article>
+    </section>
+
+    <p id="budget-message" class="message" role="status" aria-live="polite">Set a budget to get started.</p>
+
+    <section class="panel" aria-labelledby="expense-heading">
+      <h2 id="expense-heading">Add an expense</h2>
+      <form id="expense-form" class="expense-form">
+        <div>
+          <label for="expense-name">Expense name</label>
+          <input id="expense-name" type="text" maxlength="40" placeholder="e.g. Transport" required>
+        </div>
+        <div>
+          <label for="expense-amount">Amount (KSh)</label>
+          <input id="expense-amount" type="number" min="0.01" step="0.01" placeholder="e.g. 500" required>
+        </div>
+        <button type="submit">Add expense</button>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="records-heading">
+      <div class="section-heading">
+        <h2 id="records-heading">Expense records</h2>
+        <button id="clear-expenses" class="button-secondary" type="button">Clear all</button>
+      </div>
+      <ul id="expense-list" class="expense-list">
+        <li class="empty-state">No expenses added yet.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer><p>SpendWise · Simple budgeting for everyday life</p></footer>
+</body>
+</html>
